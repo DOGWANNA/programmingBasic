@@ -1,26 +1,48 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MockTest {
     public int[] solution(int[] answers) {
-        int[] answer = {};
+        // answer에 i값 바꾸는 식을 주어서
         ArrayList<Integer> list = new ArrayList<>();
-        for(int i : answers){
-            list.add(i);
-        }
         int[] pattern1 = {1,2,3,4,5};
         int[] pattern2 = {2,1,2,3,2,4,2,5};
         int[] pattern3 = {3,3,1,1,2,2,4,4,5,5};
+        int[] cnt = new int[3];
 
-        //패턴 별로 정답 개수에 해당하는 변수를 어떻게 할당할 것인가???
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i)
+        for (int i = 0; i < answers.length; i++) {
+            if(answers[i] == pattern1[i % pattern1.length]){
+                cnt[0]++;
+            }
+            if(answers[i] == pattern2[i % pattern2.length]){
+                cnt[1]++;
+            }
+            if(answers[i] == pattern3[i % pattern3.length]){
+                cnt[2]++;
+            }
         }
-        //정답 갯수 별로 answer에 넣어야하는 개수가 다르다. 어떻게??
+        int max = cnt[0];
+        if(cnt[1] > max){max = cnt[1];}
+        if(cnt[2] > max){max = cnt[2];}
+//        int max = Math.max(Math.max(cnt[0] ,cnt[1]),cnt[2]);
 
+
+        for (int i = 0; i < cnt.length; i++) {
+            if(cnt[i] == max){
+                list.add(i+1);
+            }
+        }
+        int[] answer = new int[list.size()];
+        for(int i = 0 ; i < list.size() ; i++){
+            answer[i] = list.get(i);
+        }
+        Arrays.sort(answer);
         return answer;
     }
     public static void main(String[] args) {
         MockTest obj = new MockTest();
-        int[] answer = obj.solution(new int[]{1,2,3,4,5});
+        int[] answer = obj.solution(new int[]{1,3,2,4,2});
+        System.out.println(Arrays.toString(answer));
+
     }
 }
