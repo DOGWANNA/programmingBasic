@@ -19,13 +19,11 @@ public class RecommendNewId {
         if(answer.equals("")){
             answer += "a";
         }
-
         // 6단계
         if(answer.length() >= 16){
             answer = answer.substring(0, 15);
             answer = answer.replaceAll("[.]$",""); // 문자열 끝에 .이면 삭제
         }
-
         // 7단계
         if(answer.length() <= 2){
             while(answer.length() < 3){
