@@ -38,7 +38,7 @@ public class WeirdWord {
                     }
                 }else {
                     break;
-                }
+                }//sadfsd
             }
             if(!split[i].equals("")) answer += " ";
         }
