@@ -45,7 +45,7 @@ public class WeirdWord {
 
         return answer.strip();
     }
-//문제풀이
+//문제풀이2
     public static void main(String[] args) {
         WeirdWord obj = new WeirdWord();
         System.out.println(obj.solution2("java python javascript"));
