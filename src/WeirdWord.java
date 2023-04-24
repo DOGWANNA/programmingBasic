@@ -48,6 +48,6 @@ public class WeirdWord {
 //문제풀이2
     public static void main(String[] args) {
         WeirdWord obj = new WeirdWord();
-        System.out.println(obj.solution2("java python javascript."));
+        System.out.println(obj.solution2("java python javascript"));
     }
 }
